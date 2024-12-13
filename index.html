@@ -5,24 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidebar</title>
     <style>
-        .body{
-            margin: o;
+        body{
+            margin: 0;
             padding: 0;
         }
         .sidebar{
-            background-color: rgb(95, 159, 182);
+            background-color:  #e6e6e6;
             height: 100vh;
-            width: 200px;
+            width: 220px;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+            visibility: hidden;
         }
+        .menu-item{
+            align-items: end;
+            padding: 10px;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            display: flex;
+     
+            cursor: pointer;
+            border-radius: 0 25px 25px 0;
+        }
+         
+        .menu-item:hover{
+            background-color: #fff;
+            border: 0.5px solid #000;
+        }
+        .menu-icon{
+            font-size: 30px;
+
+        }
+        .menu-text{
+            text-decoration: none;
+            color: #000;
+            margin-left: 5px;
+            font-size: 20px;
+            
+        }
+
+        .hamburger-menu{
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        .close-menu{
+            text-align: right;
+            padding: 10px;
+            cursor: pointer;
+            position: fixed;
+            left: 175px;
+            top: 5px;
+            
+        }
+        .search{
+            width: 140px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="menu-item">
-            <img src="" alt="" />
-            <a href="" >
+
+    <i class="fa-solid fa-bars hamburger-menu " style="font-size: 30px;" onclick="openSidebar()" id="hamburger-menu" ></i>
+
+    <div class="sidebar" id="sidebar">
+        <div>
+            <input class="search" type="text"  placeholder="Search">
+        </div>
+        
+        <div class="close-menu" style="font-size: 30px;" id="close" onclick="closedSidebar()">
+            <i class="fa-solid fa-xmark"></i>
         </div>
 
+
+        <div class="menu-item">
+            <i class="fa-solid fa-house menu-icon"></i> 
+            <a href="#" class="menu-text"> Home</a> 
+        </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-user menu-icon"></i>
+                <a href="a" class="menu-text"> about</a> 
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-envelope menu-icon"></i>
+                <a href="a" class="menu-text"> Contact</a> 
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-toolbox menu-icon"></i> 
+                <a href="a" class="menu-text"> Preferences</a> 
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-gear menu-icon"></i>
+                <a href="a" class="menu-text"> Setting</a> 
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-arrow-right-from-bracket menu-icon"></i> 
+                <a href="a" class="menu-text"> Logout</a> 
+            </div>
+        
+
     </div>
+    <script src="https://kit.fontawesome.com/eb29fd7911.js" crossorigin="anonymous"></script>
+    <script>
+        function openSidebar(){
+           const sidebarElement=document.getElementById('sidebar');
+           sidebarElement.style.visibility = 'visible';
+
+           const hamburgerMenuElement = document.getElementById('hamburger-menu');
+           hamburgerMenuElement.style.visibility = 'hidden';
+        }
+
+        function closedSidebar(){
+            const sidebarElement=document.getElementById('sidebar');
+            sidebarElement.style.visibility = 'hidden';
+
+            const hamburgerMenuElement = document.getElementById('hamburger-menu');
+            hamburgerMenuElement.style.visibility = 'visible';
+
+
+
+        }
+    </script>
 </body>
 </html>
